@@ -1,4 +1,4 @@
-var mediaSource = "./media/video-teste.mp4"
+var mediaSource = "https://res.cloudinary.com/acquati/video/upload/v1571345545/tcc-mateus-horta/video-teste_zeaf60.mp4"
 var canvas = document.getElementById('Canvas');
 var context = canvas.getContext('2d');
 var video = document.createElement("video");
@@ -8,8 +8,6 @@ canvas.width = 1024;
 canvas.height = 768;
 
 video.src = mediaSource;
-// video.width = 100;
-// video.height = 100;
 
 document.body.onkeyup = function (event) {
 	if (event.keyCode == 32) {
@@ -19,7 +17,7 @@ document.body.onkeyup = function (event) {
 		} else {
 			videoIsPlaying = true;
 			video.play();
-	
+
 			(function loop() {
 				if (!video.paused && !video.ended) {
 					context.drawImage(video, 0, 0);
