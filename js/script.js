@@ -5,59 +5,44 @@ var context = canvas.getContext('2d');
 var video = document.createElement("video");
 var videoIsPlaying = false;
 
-// if (window.innerWidth < 720) {
-// 	canvas.width = window.innerWidth;
-// 	canvas.height = window.innerHeight;
-// } else {
-// 	canvas.width = 720;
-// 	canvas.height = 480;
-// }
-
-// canvas.width = 720;
-// canvas.height = 480;
+video.src = mediaSource;
+video.loop = true;
 
 canvas.width = 560;
 canvas.height = 320;
 
-video.src = mediaSource;
-video.loop = true;
+document.onkeydown = function (event) {
+	if (event.keyCode == 32) {
+		console.log('AOOOOOOBA');
+		// videoIsPlaying = true;
+		// video.play();
 
-// document.body.onkeyup = function (event) {
-// 	if (event.keyCode == 32) {
-// 		if (videoIsPlaying) {
-// 			videoIsPlaying = false;
-// 			video.pause();
-// 		} else {
-// 			videoIsPlaying = true;
-// 			video.play();
-
-// 			(function loop() {
-// 				if (!video.paused && !video.ended) {
-// 					context.drawImage(video, 0, 0);
-// 					setTimeout(loop, 1000 / 20);
-// 				}
-// 			})();
-// 		}
-// 	}
-// }
-
-window.onclick = function () {
-	if (videoIsPlaying) {
-		videoIsPlaying = false;
-		video.pause();
-	} else {
-		videoIsPlaying = true;
-		video.play();
-
-		(function loop() {
-			if (!video.paused) {
-				// context.save();
-				context.clearRect(0, 0, canvas.width, canvas.height);
-				context.globalAlpha = 0.5;
-				context.drawImage(video, 0, 0);
-				// context.restore();
-				setTimeout(loop, 1000 / 20);
-			}
-		})();
+		// (function loop() {
+		// 	if (!video.paused) {
+		// 		context.drawImage(video, 0, 0);
+		// 		setTimeout(loop, 1000 / 20);
+		// 	}
+		// })();
 	}
 }
+
+// window.onclick = function () {
+// 	if (videoIsPlaying) {
+// 		videoIsPlaying = false;
+// 		video.pause();
+// 	} else {
+// 		videoIsPlaying = true;
+// 		video.play();
+
+// 		(function loop() {
+// 			if (!video.paused) {
+// 				// context.save();
+// 				context.clearRect(0, 0, canvas.width, canvas.height);
+// 				context.globalAlpha = 0.5;
+// 				context.drawImage(video, 0, 0);
+// 				// context.restore();
+// 				setTimeout(loop, 1000 / 20);
+// 			}
+// 		})();
+// 	}
+// }

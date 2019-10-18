@@ -9,6 +9,16 @@ body {
 	display: flex;
 }
 
-canvas {
+.container {
 	margin: auto;
+	position: relative;
+}
+
+.block {
+	background-color: rgba(0, 255, 0, 0.3);
+	width: 560px;
+	height: 320px;
+	position: absolute;
+	left: 0;
+	top: 0;
 }
