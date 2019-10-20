@@ -43,6 +43,7 @@ document.onkeyup = function (event) {
 		this.onkeydown = keyHandler;
 
 		opaqueCanvasContext.drawImage(video, 0, 0);
+		context.clearRect(0, 0, canvas.width, canvas.height);
 
 		video.pause();
 	}
