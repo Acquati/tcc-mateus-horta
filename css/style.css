@@ -9,16 +9,24 @@ body {
 	display: flex;
 }
 
-.container {
+#container {
 	margin: auto;
 	position: relative;
 }
 
 .block {
 	background-color: rgba(0, 255, 0, 0.3);
-	width: 560px;
-	height: 320px;
+	width: 720px;
+	height: 480px;
 	position: absolute;
 	left: 0;
+	top: 0;
+}
+
+.opaque-canvas {
+	width: 720px;
+	height: 480px;
+	position: absolute;
+	left: 720px;
 	top: 0;
 }

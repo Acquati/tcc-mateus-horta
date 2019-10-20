@@ -1,22 +1,23 @@
 var mediaSource = "https://res.cloudinary.com/acquati/video/upload/v1571345545/tcc-mateus-horta/video-teste_zeaf60.mp4"
 // var mediaSource = "./media/TCC_MATEUS_CORTETESTE.mp4"
 // var mediaSource = "http://techslides.com/demos/sample-videos/small.mp4"
-var canvas = document.getElementById('Canvas');
-var context = canvas.getContext('2d');
 var video = document.createElement("video");
 var videoIsPlaying = false;
-
 video.src = mediaSource;
 video.loop = true;
 
-// canvas.width = 1024;
-// canvas.height = 768;
+var container = document.getElementById("container");
 
-canvas.width = 720;
-canvas.height = 480;
+var canvas = document.getElementById('Canvas');
+var context = canvas.getContext('2d');
+canvas.width = 720; // 560 1024
+canvas.height = 480; // 320 768
 
-// canvas.width = 560;
-// canvas.height = 320;
+var opaqueCanvas = document.createElement("canvas");
+opaqueCanvas.classList.add("opaque-canvas");
+var opaqueCanvasContext = opaqueCanvas.getContext('2d');
+opaqueCanvas.width = 720;
+opaqueCanvas.height = 480;
 
 function keyHandler() {
 	if (event.keyCode == 32) {
@@ -27,6 +28,7 @@ function keyHandler() {
 		(function loop() {
 			if (!video.paused) {
 				context.drawImage(video, 0, 0);
+
 				setTimeout(loop, 1000 / 24);
 			}
 		})();
@@ -40,26 +42,9 @@ document.onkeyup = function (event) {
 		this.onkeydown = keyHandler;
 
 		video.pause();
+		opaqueCanvasContext.globalAlpha = 0.1;
+		opaqueCanvasContext.drawImage(video, 0, 0);
 	}
 }
 
-// window.onclick = function () {
-// 	if (videoIsPlaying) {
-// 		videoIsPlaying = false;
-// 		video.pause();
-// 	} else {
-// 		videoIsPlaying = true;
-// 		video.play();
-
-// 		(function loop() {
-// 			if (!video.paused) {
-// 				// context.save();
-// 				context.clearRect(0, 0, canvas.width, canvas.height);
-// 				context.globalAlpha = 0.5;
-// 				context.drawImage(video, 0, 0);
-// 				// context.restore();
-// 				setTimeout(loop, 1000 / 20);
-// 			}
-// 		})();
-// 	}
-// }
+container.appendChild(opaqueCanvas);
