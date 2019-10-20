@@ -28,5 +28,6 @@ body {
 	height: 480px;
 	position: absolute;
 	left: 720px;
+	/* left: 0; */
 	top: 0;
 }

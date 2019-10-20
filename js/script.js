@@ -18,6 +18,7 @@ opaqueCanvas.classList.add("opaque-canvas");
 var opaqueCanvasContext = opaqueCanvas.getContext('2d');
 opaqueCanvas.width = 720;
 opaqueCanvas.height = 480;
+opaqueCanvasContext.globalAlpha = 0.01;
 
 function keyHandler() {
 	if (event.keyCode == 32) {
@@ -41,9 +42,9 @@ document.onkeyup = function (event) {
 	if (event.keyCode == 32) {
 		this.onkeydown = keyHandler;
 
-		video.pause();
-		opaqueCanvasContext.globalAlpha = 0.1;
 		opaqueCanvasContext.drawImage(video, 0, 0);
+
+		video.pause();
 	}
 }
 
