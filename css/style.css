@@ -22,16 +22,16 @@ body {
 
 .block {
 	background-color: rgba(0, 255, 0, 0.3);
-	width: 720px;
-	height: 480px;
+	width: 1024px;
+	height: 768px;
 	position: absolute;
 	left: 0;
 	top: 0;
 }
 
 .opaque-canvas {
-	width: 720px;
-	height: 480px;
+	width: 1024px;
+	height: 768px;
 	position: absolute;
 	/* left: 720px; */
 	left: 0;
